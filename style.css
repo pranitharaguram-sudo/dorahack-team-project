@@ -7,7 +7,7 @@
 .container {
   width: 100%;
   min-height: 100 vh;
-  background: linear-gradient(135 deg, #153677, #4e085f);
+  background: linear-gradient(135deg, #153677, #4e085f);
   padding: 10px;
 }
 .todo-app {
@@ -65,7 +65,7 @@ ul li:: before{
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  background-image: url(pictures/unchecked.jpeg);
+  background-image: url(pictures/unchecked.png);
   background-size: cover;
   background-position: center;
   top: 12px;
