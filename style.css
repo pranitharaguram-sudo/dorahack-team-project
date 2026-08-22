@@ -60,7 +60,7 @@ ul li {
   position: relative;
   background: #fff;
   color: #333;
-  margin-bottom: 5px:
+  margin-bottom: 5px;
   border-radius: 5px;
 }
 ul li::before{
