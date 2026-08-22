@@ -10,4 +10,5 @@ function addTask() {
     li.innerHTML = inputBox.value;
     listcontainer.appendChild(li);
   }
+  inputBox.value = "";
 }
