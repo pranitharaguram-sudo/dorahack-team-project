@@ -8,7 +8,7 @@ function addTask() {
   else{
     let li = document.createElement("li");
     li.innerHTML = inputBox.value;
-    listcontainer.appendChild(li);
+    listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML = "\u00d7";
     li.appendChild(span);
@@ -18,11 +18,11 @@ function addTask() {
 }
 
 listContainer.addEventListener("click", function(e){
-  if(e.target.tagName === "LI"{
+  if(e.target.tagName === "LI"){
     e.target.classList.toggle("checked");
     saveData()
   }
-  else if(e.target.tagName === "SPAIN"){
+  else if(e.target.tagName === "SPAN"){
     e.target.parentElement.remove();
     saveData()
   }
