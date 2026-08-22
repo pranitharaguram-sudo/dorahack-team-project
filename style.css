@@ -94,7 +94,9 @@ ul li span {
   line-height: 40px;
   text-align: center;
   border-radius: 50%;
+  background: #ff5945;
+  cursor: pointer;
 } 
 ul li span:hover{
-  background: #edeef0;
+  background: #ff7a6e;
 }
