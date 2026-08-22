@@ -14,24 +14,33 @@ function addTask() {
     li.appendChild(span);
   }
   inputBox.value = "";
-  saveData()
+  saveData();
 }
 
 listContainer.addEventListener("click", function(e){
   if(e.target.tagName === "LI"){
     e.target.classList.toggle("checked");
-    saveData()
+    saveData();
   }
   else if(e.target.tagName === "SPAN"){
     e.target.parentElement.remove();
-    saveData()
+    saveData();
   }
 }, false);
+
+// Allow pressing Enter to add task
+inputBox.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    addTask();
+  }
+});
 
 function saveData(){
   localStorage.setItem("data", listContainer.innerHTML);
 } 
+
 function showTask(){
   listContainer.innerHTML = localStorage.getItem("data");
 }
+
 showTask();
