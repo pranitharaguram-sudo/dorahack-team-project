@@ -1,24 +1,82 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet"  href="style.css">
-    </head>
-    <body>
-      <div class="container">
-        <div class="todo-app">
-          <h2>To Do List</h2>
-          <div class="row">
-            <input type="text" id="input-box" placeholder="Add your text">
-            <button onclick="addTask()">Add</button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quest Journal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>⚔️ Quest Journal</h1>
+    <p>Turn your daily goals into heroic achievements.</p>
+  </header>
+
+  <main>
+    <aside>
+      <section class="card profile">
+        <div class="avatar">👤</div>
+        <h2>Adventurer</h2>
+        <p class="muted">Level <span id="level">1</span></p>
+
+        <div class="xp-section">
+          <div class="muted xp-label">
+            XP <span><span id="xp">0</span> / 100</span>
           </div>
-          <ul id="list-container">
-            <!-- <li class="checked">Task 1</li>
-            <li>Task 2</li>
-            <li>Task 3</li> -->
-          </ul>
+          <div class="progress">
+            <span id="progress"></span>
+          </div>
+        </div>
+
+        <button id="restartButton" class="restart-button" type="button">
+          Restart Journey
+        </button>
+      </section>
+
+      <section class="card streak-card">
+        <div class="streak-icon">🔥</div>
+        <strong><span id="streak">0</span> Day Streak</strong>
+        <p class="muted streak-description">Build your legend!</p>
+      </section>
+    </aside>
+
+    <section>
+      <h2>Today's Challenges</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="muted">Total Quests</span>
+          <strong id="total">0</strong>
+        </div>
+        <div class="stat">
+          <span class="muted">Completed</span>
+          <strong id="completed">0</strong>
+        </div>
+        <div class="stat">
+          <span class="muted">Lifetime XP</span>
+          <strong id="totalXp">0</strong>
         </div>
       </div>
+
+      <div class="card">
+        <form id="questForm">
+          <input id="questTitle" type="text" placeholder="Enter a new quest..." required />
+          <select id="difficulty">
+            <option value="easy">Easy · 10 XP</option>
+            <option value="medium" selected>Medium · 25 XP</option>
+            <option value="hard">Hard · 50 XP</option>
+          </select>
+          <button class="add-button" type="submit">Add Quest</button>
+        </form>
+
+        <div id="questList" class="quest-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
       <script src="script.js"></script>
     </body>
   </html>
