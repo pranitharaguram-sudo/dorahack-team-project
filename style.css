@@ -1,12 +1,16 @@
 :root {
-  --ink: #1f2a1e;
-  --parchment: #ede6d3;
-  --card: #f5f0e1;
-  --border: #d9cda9;
+  --ink: #4a2f20;
+  --dark-brown: #382217;
+  --parchment: #e8d7b7;
+  --card: #f8eedc;
+  --card-light: #fff8eb;
+  --border: #c9a979;
   --gold: #a8791f;
-  --moss: #3f6b4f;
+  --gold-light: #d6b56b;
+  --moss: #55704d;
   --blood: #8c3b2e;
-  --muted: #7a7264;
+  --muted: #806b58;
+  --shadow: rgba(74, 47, 32, 0.16);
 }
 
 * {
@@ -19,63 +23,77 @@ body {
   min-height: 100vh;
   font-family: system-ui, sans-serif;
   color: var(--ink);
-  background: linear-gradient(135deg, var(--parchment), #fffaf0);
+  background:
+    radial-gradient(circle at top, #f7ead2 0%, transparent 45%),
+    var(--parchment);
 }
 
 header {
-  padding: 20px 24px;
-  background: var(--card);
-  border-bottom: 2px solid var(--border);
+  padding: 30px 24px;
   text-align: center;
+  background: rgba(248, 238, 220, 0.9);
+  border-bottom: 3px solid var(--border);
+  box-shadow: 0 3px 12px var(--shadow);
 }
 
 h1,
 h2 {
+  color: var(--dark-brown);
   font-family: Georgia, serif;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 32px;
+  letter-spacing: 0.5px;
 }
 
 header p {
-  margin-top: 6px;
+  margin-top: 8px;
   color: var(--muted);
 }
 
 main {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 24px;
-  max-width: 1100px;
+  grid-template-columns: 270px minmax(0, 760px);
+  justify-content: center;
+  align-items: start;
+  gap: 28px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 36px 24px;
+}
+
+main > section > h2 {
+  text-align: center;
+  font-size: 28px;
 }
 
 .card {
-  padding: 18px;
-  background: var(--card);
+  padding: 20px;
+  background: rgba(248, 238, 220, 0.95);
   border: 2px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--shadow);
 }
 
 aside {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   height: fit-content;
 }
 
 .avatar {
-  width: 76px;
-  height: 76px;
+  width: 82px;
+  height: 82px;
   display: grid;
   place-items: center;
-  margin: 0 auto 12px;
-  border: 3px solid var(--gold);
+  margin: 0 auto 14px;
+  border: 4px solid var(--gold);
   border-radius: 50%;
-  background: #fff8ea;
-  font-size: 34px;
+  background: var(--card-light);
+  box-shadow: 0 4px 10px var(--shadow);
+  font-size: 36px;
 }
 
 .profile {
@@ -83,7 +101,7 @@ aside {
 }
 
 .profile h2 {
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .muted {
@@ -92,29 +110,34 @@ aside {
 }
 
 .xp-section {
-  margin-top: 18px;
+  margin-top: 20px;
   text-align: left;
 }
 
 .xp-label {
   display: flex;
   justify-content: space-between;
+  font-weight: 600;
 }
 
 .progress {
-  height: 10px;
-  margin-top: 8px;
+  height: 14px;
+  margin-top: 9px;
   overflow: hidden;
-  border-radius: 10px;
-  background: var(--border);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  background: #d8c29b;
+  box-shadow: inset 0 2px 4px rgba(74, 47, 32, 0.18);
 }
 
 .progress span {
   display: block;
   height: 100%;
   width: 0%;
+  border-radius: inherit;
   background: linear-gradient(90deg, var(--moss), var(--gold));
-  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(168, 121, 31, 0.45);
+  transition: width 1.2s ease-in-out;
 }
 
 .streak-card {
@@ -122,53 +145,58 @@ aside {
 }
 
 .streak-icon {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .streak-description {
-  margin-top: 6px;
+  margin-top: 7px;
 }
 
 .restart-button {
   width: 100%;
-  margin-top: 18px;
-  padding: 9px 12px;
+  margin-top: 20px;
+  padding: 10px 12px;
   border: 2px solid var(--blood);
+  border-radius: 8px;
   color: var(--blood);
   background: transparent;
   font-weight: 600;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .restart-button:hover {
   color: white;
   background: var(--blood);
+  transform: translateY(-2px);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 20px 0;
+  gap: 14px;
+  margin: 22px 0;
 }
 
 .stat {
-  padding: 14px;
+  padding: 16px;
   text-align: center;
-  background: var(--card);
+  background: rgba(248, 238, 220, 0.95);
   border: 2px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 5px 14px var(--shadow);
 }
 
 .stat strong {
   display: block;
-  margin-top: 4px;
-  font: 24px Georgia, serif;
+  margin-top: 5px;
+  color: var(--dark-brown);
+  font: 26px Georgia, serif;
 }
 
 form {
   display: flex;
-  gap: 8px;
-  margin: 16px 0;
+  gap: 10px;
+  margin: 16px 0 20px;
 }
 
 input,
@@ -180,48 +208,60 @@ button {
 input,
 select {
   width: 100%;
-  padding: 10px;
+  padding: 11px 12px;
   border: 2px solid var(--border);
-  border-radius: 6px;
-  background: white;
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--card-light);
 }
 
 input:focus,
 select:focus {
   outline: none;
   border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(168, 121, 31, 0.16);
 }
 
 button {
   border: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 .add-button {
-  padding: 0 18px;
+  padding: 0 20px;
   color: white;
   background: var(--gold);
   font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .add-button:hover {
   background: #8e6518;
+  transform: translateY(-2px);
 }
 
 .quest-list {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .quest {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px;
-  background: var(--card);
+  padding: 15px;
+  background: var(--card-light);
   border: 2px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quest:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px var(--shadow);
 }
 
 .quest.completed {
@@ -233,26 +273,34 @@ button {
 }
 
 .check {
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
   border: 2px solid var(--gold);
   border-radius: 50%;
   color: var(--gold);
   background: #fff8ea;
   font-weight: bold;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.check:hover {
+  color: white;
+  background: var(--gold);
 }
 
 .quest-info {
   flex: 1;
+  text-align: left;
 }
 
 .quest-title {
+  color: var(--dark-brown);
   font-weight: 600;
 }
 
 .quest-meta {
-  margin-top: 4px;
+  margin-top: 5px;
   color: var(--muted);
   font-size: 12px;
 }
@@ -261,7 +309,7 @@ button {
   padding: 4px 8px;
   color: var(--muted);
   background: transparent;
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .remove:hover {
@@ -269,18 +317,30 @@ button {
 }
 
 .empty {
-  padding: 28px;
+  padding: 30px;
   text-align: center;
   color: var(--muted);
-  background: var(--card);
+  background: var(--card-light);
   border: 2px dashed var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   main {
     grid-template-columns: 1fr;
-    padding: 16px;
+    max-width: 760px;
+  }
+
+  aside {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 24px 16px;
   }
 
   .stats {
@@ -292,6 +352,6 @@ button {
   }
 
   .add-button {
-    padding: 10px;
+    padding: 11px;
   }
 }
